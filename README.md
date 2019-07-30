@@ -27,8 +27,9 @@ npm run dev
 npm run build
 ```
 
-## Core Code
+## Core Code & User's Guide
 
 ```
-Located in src\components\
+code located in src\components\
+for guide plz read readme.txt 
 ```
