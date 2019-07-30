@@ -1,0 +1,32 @@
+1.在App中使用Formmaker组件时利用:form=form1传递数据格式为:
+data = {
+	form1:{
+	"required":[{},{}...,{}],
+	"optional":[{},{}...,{}]
+	}
+}
+2.可选'type':
+	1.'CharField':单行文本输入框
+	2.'IntegerField':只接受整数的计数器
+	3.'FloatField':可接受小数的计数器
+	4.'BooleanField':开关
+	5.'DateField':日期选择器，格式为yyyy-MM-dd
+	6.'TimeField':时间选择器，格式为HH:mm:ss
+	7.'DateTimeField':日期时间选择器，格式为yyyy-MM-dd HH:mm:ss
+	8.'EmailField':邮箱输入框
+	9.'FileField':文件上传（未完成）
+	10.'ChoiceField':下拉选择器
+	12.'SingleChoiceField':单选框
+	13.'MultipleChoiceField':多选框
+	14.'TextField':文本框
+	15.'ArrayField':带删除行，增添行功能的二位数组输入框
+	16.若'type'未找到、未定义或为空,则视为一个单行文本输入框
+3.'defualt'值通过v-model进行绑定
+	需要注意的是'MultipleChoiceField'以及'ArrayField'的'default'值必须是一个数组[]
+	其他均可为String,而计数器内的值被v-model自动绑定成Number类
+4.请保证'id'的唯一性，重复的'id'会导致报错和效验错误
+5.在Formmaker组件中可多次调用Itemmaker组件，利用:required="'ture'"来设置必填区域（注意：这里传输的'true'是一个String类）
+6.为了实现二维数组的动态输入，增添了Arraymaker组件，使用该组件时需要传递的参数包括二维数组本身(:comparray)以及单行数组的索引(:index)
+	需要注意的是，输入数组时所有元素将自动转为String类，元素分割符为","、"，"和空格
+	同时，清除数组将直接把二维数组替换为一个空数组[]
+	此外，数组的效验较为基础，当ArrayField为必填时，只有当二维数组为空[]时会效验失败
