@@ -30,4 +30,5 @@ npm run build
 ## Core Code
 
 ```
+Located in src\components\
 ```
